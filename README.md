@@ -1,5 +1,5 @@
 # Visual-Recognition-HW3
-NCTU Visual Recognition Homework 3 (YOLOv4 C++ ver.)
+NCTU Visual Recognition Homework 3
 
 ## Hardware
 OS: Ubuntu 18.04.3 LTS
