@@ -60,7 +60,7 @@ python train.py --config=yolact_resnet50_pascal_config --batch_size=20 --batch_a
 The expected training times are:
 Model | GPUs | Image size | Training Epoch | Training Time
 ------------ | ------------- | ------------- | ------------- | -------------
-darknet | 2x RTX 2080Ti | 550 x 550 | 144 | 2 hours
+YOLACT | 2x RTX 2080Ti | 550 x 550 | 144 | 2 hours
 
 
 ## Testing
