@@ -41,6 +41,8 @@ cs-t0828-2020-hw3
 │   │   │   ├── pascal_sbd_val.json
 │   ├── weights
 │   │   ├── Put pretrained (Imagenet) resnet50 weight here
+│   ├── results
+│   │   ├── your testing result will be here
 
 ```
 I seperate the original training data (1349 images) into two part. One for training (1200 images) and one for evaluating(149 images). 
@@ -52,6 +54,8 @@ To train models:
 cd /path/to/your/yolact/
 python train.py --config=yolact_resnet50_pascal_config --batch_size=20 --batch_alloc=10,10 --validation_epoch=4 --save_epoch=4
 ```
+[Pretrained weight resnet50 (Imagenet) ](https://drive.google.com/file/d/1xFwvDAvP2zN37oMLfV7y6UazPK7gxf93/view?usp=sharing)
+
 
 The expected training times are:
 Model | GPUs | Image size | Training Epoch | Training Time
@@ -63,11 +67,10 @@ darknet | 2x RTX 2080Ti | 550 x 550 | 144 | 2 hours
 To test models:
 
 ```
-cd /path/to/your/darknet/
-./darknet detector test cfg/my.data cfg/yolov4.cfg yolov4_20000.weights -thresh 0.001 -ext_output -dont_show -out result.json < ../../HW2/test.txt
+cd /path/to/your/yolact/
+python createJSON.py --config=yolact_resnet50_pascal_config --trained_model=/path/to/your/well-trained weight/
 ```
-[Pretrain weight](https://drive.google.com/file/d/1tMZML34PD7cvxMz7SpKit_nNA5FgVj-h/view?usp=sharing)
+[Pretrain weight](https://drive.google.com/file/d/1wv0pt55BxV43i0CbGaUgsxYU_OzuBlIE/view?usp=sharing)
 
 ## Reference
-1. [YOLO](https://github.com/AlexeyAB/darknet).
-2. [.mat to .csv](https://github.com/pavitrakumar78/Street-View-House-Numbers-SVHN-Detection-and-Classification-using-CNN/blob/master/construct_datasets.py)
+1. [YOLACT](https://github.com/dbolya/yolact).
