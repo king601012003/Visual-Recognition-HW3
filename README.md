@@ -45,7 +45,9 @@ cs-t0828-2020-hw3
 │   │   ├── your testing result will be here
 
 ```
-I seperate the original training data (1349 images) into two part. One for training (1200 images) and one for evaluating(149 images). 
+I seperate the original training data (1349 images) into two part. One for training (1200 images) and one for validation(149 images). (seperate_train_val.py can seperate original pascal_train.json randomly into training and validation)
+
+
 
 ## Training
 To train models:
