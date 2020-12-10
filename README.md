@@ -21,7 +21,6 @@ To reproduct my submission without retrainig, do the following steps:
 this code was trained and tested on Ubuntu 18.04
 
 ```
-git clone https://github.com/dbolya/yolact.git
 conda env create -f environment.yml
 
 ```
@@ -40,27 +39,24 @@ cs-t0828-2020-hw3
 │   │   │   │   ├── Put training and validation images here
 │   │   │   ├── pascal_sbd_train.json
 │   │   │   ├── pascal_sbd_val.json
+│   ├── weights
+│   │   ├── Put pretrained (Imagenet) resnet50 weight here
 
 ```
-I seperate the original training data (33402 images) into two part. One for training (30000 images) and one for evaluating(3402 images). 
+I seperate the original training data (1349 images) into two part. One for training (1200 images) and one for evaluating(149 images). 
 
 ## Training
 To train models:
 
 ```
-cd /path/to/your/darknet/
-1. pretrain:
-./darknet detector train cfg/my.data cfg/yolov4.cfg yolov4.weights -dont_show -mjpeg_port 8090 -map -clear -gpus 0
-2. no pretrain:
-./darknet detector train cfg/my.data cfg/yolov4.cfg -dont_show -mjpeg_port 8090 -map -clear -gpus 0
+cd /path/to/your/yolact/
+python train.py --config=yolact_resnet50_pascal_config --batch_size=20 --batch_alloc=10,10 --validation_epoch=4 --save_epoch=4
 ```
 
-you can see the training loss: http://localhost:8090/
-
 The expected training times are:
-Model | GPUs | Image size | Training Iteration | Training Time
+Model | GPUs | Image size | Training Epoch | Training Time
 ------------ | ------------- | ------------- | ------------- | -------------
-darknet | 1x RTX 2080Ti | 608 x 608 | 67000 | 24 hours
+darknet | 2x RTX 2080Ti | 550 x 550 | 144 | 2 hours
 
 
 ## Testing
