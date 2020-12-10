@@ -21,6 +21,7 @@ To reproduct my submission without retrainig, do the following steps:
 this code was trained and tested on Ubuntu 18.04
 
 ```
+cd /path/to/your/yolact/
 conda env create -f environment.yml
 
 ```
